@@ -27,7 +27,7 @@ class CharacterBasicCellView: UITableViewCell {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = Metric.labelFont
         return label
     } ()
 
@@ -39,11 +39,8 @@ class CharacterBasicCellView: UITableViewCell {
     // MARK:  - Settings
 
     private func setupHierarchy(){
-        addSubview(titleLabel)
-        addSubview(iconImage)
-        self.layer.cornerRadius = 10
-        self.layer.borderWidth = 2
-        self.layer.borderColor = CGColor.init(gray: 10, alpha: 1)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(iconImage)
     }
 
     private func setupLayout() {
@@ -52,15 +49,16 @@ class CharacterBasicCellView: UITableViewCell {
         iconImage.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            iconImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Metric.iconImageLeadingAnchorConstant),
-            iconImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+
+            contentView.heightAnchor.constraint(equalToConstant: Metric.contentViewHeightAnchor),
+
+            iconImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Metric.iconImageLeadingAnchorConstant),
+            iconImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             iconImage.widthAnchor.constraint(equalToConstant: Metric.iconImageWidthAnchorConstant),
             iconImage.heightAnchor.constraint(equalToConstant: Metric.iconImageHeightAnchorConstant),
 
             titleLabel.leadingAnchor.constraint(equalTo: iconImage.trailingAnchor, constant: Metric.titleLabelLeadingAnchorConstant),
-            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.widthAnchor.constraint(equalToConstant: Metric.titleLabelWidthAnchor),
-            self.heightAnchor.constraint(equalToConstant: Metric.titleLabelHeightAnchor)
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
 }
@@ -69,12 +67,10 @@ extension CharacterBasicCellView {
 
     enum Metric {
         static let labelFont: UIFont = .systemFont(ofSize: 17)
-
+        static let contentViewHeightAnchor: CGFloat = 60
         static var titleLabelLeadingAnchorConstant: CGFloat = 16
-        static var titleLabelWidthAnchor: CGFloat = 50
-        static var titleLabelHeightAnchor: CGFloat = 80
         static var iconImageLeadingAnchorConstant: CGFloat = 16
-        static var iconImageWidthAnchorConstant: CGFloat = 50
-        static var iconImageHeightAnchorConstant: CGFloat = 50
+        static var iconImageWidthAnchorConstant: CGFloat = 30
+        static var iconImageHeightAnchorConstant: CGFloat = 30
     }
 }
