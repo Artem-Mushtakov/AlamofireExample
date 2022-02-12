@@ -8,17 +8,19 @@
 import UIKit
 
 protocol Builder {
-    static func createCharacterModule() -> UIViewController
+    static func createMarvelCharacterModule() -> UIViewController
 }
 
 // Сборщик модулей
 
 class ModuleBuilder: Builder {
-    static func createCharacterModule() -> UIViewController {
-        let model = CharacterModel(firstName: "Alex", lastName: "Potyu")
+    static func createMarvelCharacterModule() -> UIViewController {
+        let model = CharacterModel()
         let view = CharacterViewController()
-        let presenter = CharacterPresenter(view: view, character: model)
+        let presenter = CharacterPresenter(view: view, characterModel: model)
+        let adapter = CharacterAdapter(model: model)
         view.presenter = presenter
+        view.adapter = adapter
         return view
     }
 }

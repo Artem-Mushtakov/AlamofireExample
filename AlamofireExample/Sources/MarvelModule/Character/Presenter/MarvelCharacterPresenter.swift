@@ -15,8 +15,8 @@ protocol ViewOutputProtocol: AnyObject {
 // Протокол передачи во вью
 protocol ViewInputProtocol: AnyObject {
 
-    init(view: ViewOutputProtocol, character: CharacterModel)
-    func showGreeting()
+    init(view: ViewOutputProtocol, characterModel: CharacterModel)
+    //func showGreeting()
 }
 
 class CharacterPresenter: ViewInputProtocol {
@@ -24,15 +24,10 @@ class CharacterPresenter: ViewInputProtocol {
     let view: ViewOutputProtocol
 
     // Модель персонажей
-    let character: CharacterModel
+    let characterModel: CharacterModel
 
-    required init(view: ViewOutputProtocol, character: CharacterModel) {
+    required init(view: ViewOutputProtocol, characterModel: CharacterModel) {
         self.view = view
-        self.character = character
-    }
-
-    func showGreeting() {
-        let greeting = character.lastName + " " + character.firstName
-        self.view.getGreeting(greeting: greeting )
+        self.characterModel = characterModel
     }
 }
