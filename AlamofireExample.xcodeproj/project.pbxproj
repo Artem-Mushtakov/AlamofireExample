@@ -11,6 +11,7 @@
 		ACDC991A27B7E61800CA095F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC991927B7E61800CA095F /* SceneDelegate.swift */; };
 		ACDC991C27B7E61800CA095F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC991B27B7E61800CA095F /* ViewController.swift */; };
 		ACDC992127B7E61800CA095F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDC992027B7E61800CA095F /* Assets.xcassets */; };
+		ACDC993027B7F5B800CA095F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ACDC992F27B7F5B800CA095F /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACDC993027B7F5B800CA095F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +103,9 @@
 			dependencies = (
 			);
 			name = AlamofireExample;
+			packageProductDependencies = (
+				ACDC992F27B7F5B800CA095F /* Alamofire */,
+			);
 			productName = AlamofireExample;
 			productReference = ACDC991427B7E61800CA095F /* AlamofireExample.app */;
 			productType = "com.apple.product-type.application";
@@ -129,6 +134,9 @@
 				Base,
 			);
 			mainGroup = ACDC990B27B7E61800CA095F;
+			packageReferences = (
+				ACDC992E27B7F5B800CA095F /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = ACDC991527B7E61800CA095F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -355,6 +363,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ACDC992E27B7F5B800CA095F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ACDC992F27B7F5B800CA095F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACDC992E27B7F5B800CA095F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ACDC990C27B7E61800CA095F /* Project object */;
 }
