@@ -7,6 +7,8 @@
 
 import Alamofire
 
+//Здесь заполняем параметры для запроса
+
 enum NetworkProvider: UrlRequestBuilder {
     
     case showCharacters

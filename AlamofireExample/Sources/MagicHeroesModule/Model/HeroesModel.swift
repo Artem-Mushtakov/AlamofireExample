@@ -24,7 +24,7 @@ struct Card: Codable {
     let foreignNames: [ForeignName]?
     let rulings: [Ruling]?
     let supertypes: [String]?
-
+    
     enum CodingKeys: String, CodingKey {
         case name, manaCost, colors, colorIdentity
         case imageURL = "imageUrl"
@@ -52,7 +52,7 @@ struct ForeignName: Codable {
     let imageURL: String?
     let language: Language?
     let multiverseid: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case name, text, type, flavor
         case imageURL = "imageUrl"

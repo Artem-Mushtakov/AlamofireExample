@@ -19,15 +19,15 @@ protocol ViewInputProtocol: AnyObject {
 
     init(view: ViewOutputProtocol, networkService: ServiceProvider<NetworkProvider>)
     func getData()
-    var data: HeroesModel? { get set }
+    var model: HeroesModel? { get set }
 }
 
 class HeroesPresenter: ViewInputProtocol {
 
-    weak var view: ViewOutputProtocol?
     let networkService: ServiceProvider<NetworkProvider>
-    var data: HeroesModel?
-
+    weak var view: ViewOutputProtocol?
+    var model: HeroesModel?
+    // Инициализатор который используется в ModuleBuilder для конфигурации Presenter
     required init(view: ViewOutputProtocol, networkService: ServiceProvider<NetworkProvider>) {
         self.view = view
         self.networkService = networkService
@@ -38,14 +38,16 @@ class HeroesPresenter: ViewInputProtocol {
         networkService.load(service: .showCharacters, decodeType: HeroesModel.self) { [weak self] result in
             guard let self = self else { return }
             print(result)
+            // Вызываем асинхронно с main потоком, что бы в случае задержки запроса, не было зависания UI.
             DispatchQueue.main.async {
                 switch result {
-                case .success(let data):
-                    self.data = data
+                case .success(let model):
+                    self.model = model
+                    // Вызов функции view при успешном запросе
                     self.view?.succes()
-                    print(data)
+                    print(model)
                 case .failure(let error):
-                    print("Error ОШИБКА")
+                    // Вызов функции view при Ошибке запросе
                     self.view?.failure(error: error)
                 }
             }

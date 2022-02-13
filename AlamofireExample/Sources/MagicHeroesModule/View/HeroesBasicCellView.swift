@@ -9,6 +9,8 @@ import Foundation
 
 import UIKit
 
+// Базовая ячейка таблицы
+
 class HeroesBasicCellView: UITableViewCell {
 
     // MARK: - Initial
@@ -42,7 +44,7 @@ class HeroesBasicCellView: UITableViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(iconImage)
     }
-
+    
     private func setupLayout() {
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
