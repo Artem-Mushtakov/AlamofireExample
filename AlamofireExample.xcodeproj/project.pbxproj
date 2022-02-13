@@ -23,6 +23,10 @@
 		ACDC9A0E27B9272B00CA095F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC9A0D27B9272B00CA095F /* StringExtensions.swift */; };
 		ACDC9A1127B9579B00CA095F /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC9A1027B9579B00CA095F /* NetworkProvider.swift */; };
 		ACDC9A1327B957F200CA095F /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC9A1227B957F200CA095F /* ServiceProvider.swift */; };
+		ACDC9A1927B98BDF00CA095F /* InfoHeroesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC9A1827B98BDF00CA095F /* InfoHeroesPresenter.swift */; };
+		ACDC9A1B27B98BF600CA095F /* InfoHeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC9A1A27B98BF600CA095F /* InfoHeroesViewController.swift */; };
+		ACDC9A1D27B98C3B00CA095F /* HeroesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC9A1C27B98C3B00CA095F /* HeroesPresenterProtocol.swift */; };
+		ACDC9A1F27B98C7100CA095F /* InfoHeroesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC9A1E27B98C7100CA095F /* InfoHeroesPresenterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		ACDC9A0D27B9272B00CA095F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		ACDC9A1027B9579B00CA095F /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		ACDC9A1227B957F200CA095F /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		ACDC9A1827B98BDF00CA095F /* InfoHeroesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHeroesPresenter.swift; sourceTree = "<group>"; };
+		ACDC9A1A27B98BF600CA095F /* InfoHeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHeroesViewController.swift; sourceTree = "<group>"; };
+		ACDC9A1C27B98C3B00CA095F /* HeroesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesPresenterProtocol.swift; sourceTree = "<group>"; };
+		ACDC9A1E27B98C7100CA095F /* InfoHeroesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHeroesPresenterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +126,7 @@
 			children = (
 				ACDC993227B7FA6200CA095F /* Networking */,
 				ACDC99F927B82FB500CA095F /* ModuleBuilder */,
-				ACDC99F427B82F0300CA095F /* MagicHeroesModule */,
+				ACDC9A1427B98BA100CA095F /* Scenes */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 		ACDC99F827B82F9800CA095F /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				ACDC9A1C27B98C3B00CA095F /* HeroesPresenterProtocol.swift */,
 				ACDC99D627B8016900CA095F /* HeroesPresenter.swift */,
 			);
 			path = Presenter;
@@ -209,6 +218,41 @@
 				ACDC9A0D27B9272B00CA095F /* StringExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ACDC9A1427B98BA100CA095F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				ACDC99F427B82F0300CA095F /* MagicHeroesModule */,
+				ACDC9A1527B98BB300CA095F /* InfoMagicHeroesModule */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		ACDC9A1527B98BB300CA095F /* InfoMagicHeroesModule */ = {
+			isa = PBXGroup;
+			children = (
+				ACDC9A1727B98BCC00CA095F /* Presenter */,
+				ACDC9A1627B98BC700CA095F /* View */,
+			);
+			path = InfoMagicHeroesModule;
+			sourceTree = "<group>";
+		};
+		ACDC9A1627B98BC700CA095F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ACDC9A1A27B98BF600CA095F /* InfoHeroesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ACDC9A1727B98BCC00CA095F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				ACDC9A1E27B98C7100CA095F /* InfoHeroesPresenterProtocol.swift */,
+				ACDC9A1827B98BDF00CA095F /* InfoHeroesPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,17 +360,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACDC9A1B27B98BF600CA095F /* InfoHeroesViewController.swift in Sources */,
+				ACDC9A1927B98BDF00CA095F /* InfoHeroesPresenter.swift in Sources */,
 				ACDC991C27B7E61800CA095F /* HeroesViewController.swift in Sources */,
 				ACDC9A0A27B8FD5800CA095F /* URLRequestBuilder.swift in Sources */,
 				ACDC991827B7E61800CA095F /* AppDelegate.swift in Sources */,
 				ACDC9A0C27B9108700CA095F /* HeroesModel.swift in Sources */,
 				ACDC99FD27B830EA00CA095F /* HeroesBasicCellView.swift in Sources */,
 				ACDC99E127B82A9100CA095F /* ModuleBuilder.swift in Sources */,
+				ACDC9A1F27B98C7100CA095F /* InfoHeroesPresenterProtocol.swift in Sources */,
 				ACDC9A0E27B9272B00CA095F /* StringExtensions.swift in Sources */,
 				ACDC99D727B8016900CA095F /* HeroesPresenter.swift in Sources */,
 				ACDC99D927B8018800CA095F /* HeroesAdapter.swift in Sources */,
 				ACDC9A1327B957F200CA095F /* ServiceProvider.swift in Sources */,
 				ACDC9A1127B9579B00CA095F /* NetworkProvider.swift in Sources */,
+				ACDC9A1D27B98C3B00CA095F /* HeroesPresenterProtocol.swift in Sources */,
 				ACDC991A27B7E61800CA095F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

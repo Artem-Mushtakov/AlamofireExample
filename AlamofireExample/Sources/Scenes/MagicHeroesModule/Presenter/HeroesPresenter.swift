@@ -8,27 +8,13 @@
 import UIKit
 import Alamofire
 
-// Протокол передачи из Вью
-protocol ViewOutputProtocol: AnyObject {
-    func succes()
-    func failure(error: Error)
-}
-
-// Протокол передачи во вью
-protocol ViewInputProtocol: AnyObject {
-
-    init(view: ViewOutputProtocol, networkService: ServiceProvider<NetworkProvider>)
-    func getData()
-    var model: HeroesModel? { get set }
-}
-
-class HeroesPresenter: ViewInputProtocol {
+class HeroesPresenter: HeroesViewInputProtocol {
 
     let networkService: ServiceProvider<NetworkProvider>
-    weak var view: ViewOutputProtocol?
+    weak var view: HeroesViewOutputProtocol?
     var model: HeroesModel?
     // Инициализатор который используется в ModuleBuilder для конфигурации Presenter
-    required init(view: ViewOutputProtocol, networkService: ServiceProvider<NetworkProvider>) {
+    required init(view: HeroesViewOutputProtocol, networkService: ServiceProvider<NetworkProvider>) {
         self.view = view
         self.networkService = networkService
         getData()

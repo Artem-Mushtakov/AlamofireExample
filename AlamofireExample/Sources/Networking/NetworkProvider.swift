@@ -30,7 +30,7 @@ enum NetworkProvider: UrlRequestBuilder {
     var parameters: Parameters? {
         switch self {
         case .showCharacters:
-            return ["name" : "Black Lotus"]
+            return nil //["name" : "Black Lotus"]
         }
     }
     

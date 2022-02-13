@@ -14,7 +14,7 @@ class HeroesViewController: UIViewController {
     
     // Объявляем Presenter для передачи из вью контроллера в Presenter.
     // Presenter инициализируем через сборщик модулей ModuleBuilder
-    var presenter: ViewInputProtocol?
+    var presenter: HeroesViewInputProtocol?
     
     //Объявляем адаптер для таблицы который подписан на Delegate и DataSource
     // Adapter инициализируем через сборщик модулей ModuleBuilder
@@ -60,7 +60,7 @@ class HeroesViewController: UIViewController {
 
 // Подписываемся под ViewOutputProtocol для связывания вью и презентора
 
-extension HeroesViewController: ViewOutputProtocol {
+extension HeroesViewController: HeroesViewOutputProtocol {
     // Функция вызывается при успешном выполнении запроса
     func succes() {
         adapter?.model = presenter?.model ?? HeroesModel(cards: nil)
