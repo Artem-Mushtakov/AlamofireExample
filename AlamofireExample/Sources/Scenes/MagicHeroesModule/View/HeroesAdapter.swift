@@ -12,13 +12,14 @@ import UIKit
 class HeroesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Properties
-    
     var model: HeroesModel
+    var viewController: UIViewController
 
     // MARK: - Initial
 
-    init(model: HeroesModel) {
+    init(model: HeroesModel, view: UIViewController) {
         self.model = model
+        self.viewController = view
     }
 
     // MARK:  - Settings
@@ -32,8 +33,12 @@ class HeroesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(model.cards.map { $0.map { $0.name } } ?? 0)
+        let data = model.cards
+        print(data?[indexPath.row].name ?? "")
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let infoViewController = ModuleBuilder.createInfoHeroesModule()
+        viewController.navigationController?.pushViewController(infoViewController, animated: true)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,7 +48,8 @@ class HeroesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
 
         guard let data = model.cards else { return UITableViewCell() }
 
-        cell.titleLabel.text = data[indexPath.row].name
+        cell.headerLabel.text = data[indexPath.row].name
+        cell.label.text = "Нажми что бы посмотреть картинку!"
         return cell
     }
 }

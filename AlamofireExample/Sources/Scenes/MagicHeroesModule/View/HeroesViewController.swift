@@ -15,7 +15,6 @@ class HeroesViewController: UIViewController {
     // Объявляем Presenter для передачи из вью контроллера в Presenter.
     // Presenter инициализируем через сборщик модулей ModuleBuilder
     var presenter: HeroesViewInputProtocol?
-    
     //Объявляем адаптер для таблицы который подписан на Delegate и DataSource
     // Adapter инициализируем через сборщик модулей ModuleBuilder
     var adapter: HeroesAdapter?

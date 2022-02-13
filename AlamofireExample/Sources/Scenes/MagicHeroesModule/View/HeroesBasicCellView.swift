@@ -27,31 +27,35 @@ class HeroesBasicCellView: UITableViewCell {
 
     // MARK: - Views
 
-    lazy var titleLabel: UILabel = {
+    lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.font = Metric.labelFont
         return label
     } ()
 
-    lazy var iconImage: UIImageView = {
-        let image = UIImageView()
-        return image
+    lazy var label: UILabel = {
+        let label = UILabel()
+        return label
     } ()
 
     // MARK:  - Settings
 
     private func setupHierarchy(){
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(iconImage)
+        contentView.addSubview(headerLabel)
+        contentView.addSubview(label)
     }
     
     private func setupLayout() {
 
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            contentView.heightAnchor.constraint(equalToConstant: 80),
+            headerLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            headerLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -15),
+            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            label.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 5)
         ])
     }
 }
@@ -59,6 +63,6 @@ class HeroesBasicCellView: UITableViewCell {
 extension HeroesBasicCellView {
 
     enum Metric {
-        static let labelFont: UIFont = .systemFont(ofSize: 17)
+        static let labelFont: UIFont = .boldSystemFont(ofSize: 17)
     }
 }
