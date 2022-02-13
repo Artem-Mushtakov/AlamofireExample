@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UINavigationController(rootViewController: ModuleBuilder.createMarvelCharacterModule())
+        window.rootViewController = UINavigationController(rootViewController: ModuleBuilder.createMagicHeroesModule())
         self.window = window
         window.makeKeyAndVisible()
     }

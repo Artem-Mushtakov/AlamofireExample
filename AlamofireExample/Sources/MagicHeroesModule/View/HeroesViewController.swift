@@ -1,13 +1,14 @@
 //
-//  CharacterViewController.swift
+//  HeroesViewController.swift
 //  AlamofireExample
 //
 //  Created by Artem Mushtakov on 12.02.2022.
 //
 
 import UIKit
+import Alamofire
 
-class CharacterViewController: UIViewController {
+class HeroesViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -15,8 +16,9 @@ class CharacterViewController: UIViewController {
     // Presenter инициализируем через сборщик модулей ModuleBuilder
     var presenter: ViewInputProtocol?
 
+
     //Объявляем адаптер для таблицы который подписан на Delegate и DataSource
-    var adapter: CharacterAdapter?
+    var adapter: HeroesAdapter?
 
     // MARK: - Views
 
@@ -24,7 +26,7 @@ class CharacterViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = adapter
         tableView.delegate = adapter
-        tableView.register(CharacterBasicCellView.self, forCellReuseIdentifier: "BasicCellView")
+        tableView.register(HeroesBasicCellView.self, forCellReuseIdentifier: "BasicCellView")
         return tableView
     }()
 
@@ -32,7 +34,7 @@ class CharacterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Marvel Character"
+        title = "Magic Heroes 🌯"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .white
         setupHierarchy()
@@ -58,8 +60,13 @@ class CharacterViewController: UIViewController {
 
 // Делаем биндинг для связывания с вью
 
-extension CharacterViewController: ViewOutputProtocol {
-    func getGreeting(greeting: String) {
-       /// self.greeting.text = greeting
+extension HeroesViewController: ViewOutputProtocol {
+    func succes() {
+        adapter?.model = presenter?.data ?? HeroesModel(cards: nil)
+        tableView.reloadData()
+    }
+
+    func failure(error: Error) {
+        print(error.localizedDescription)
     }
 }
