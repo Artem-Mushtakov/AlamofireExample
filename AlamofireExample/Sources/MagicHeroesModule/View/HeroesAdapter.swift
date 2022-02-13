@@ -40,10 +40,10 @@ class HeroesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BasicCellView", for: indexPath) as? HeroesBasicCellView
         else { return UITableViewCell() }
-        let data = model.cards?.compactMap({ text in
-            return text.name
-        })
-        cell.titleLabel.text = data?[indexPath.row]
+
+        guard let data = model.cards else { return UITableViewCell() }
+
+        cell.titleLabel.text = data[indexPath.row].name
         return cell
     }
 }

@@ -63,7 +63,7 @@ class HeroesViewController: UIViewController {
 extension HeroesViewController: ViewOutputProtocol {
     // Функция вызывается при успешном выполнении запроса
     func succes() {
-        adapter?.model = presenter?.data ?? HeroesModel(cards: nil)
+        adapter?.model = presenter?.model ?? HeroesModel(cards: nil)
         tableView.reloadData()
     }
     // Функция вызывается при ошибки выполнении запроса

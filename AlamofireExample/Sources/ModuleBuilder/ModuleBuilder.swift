@@ -22,7 +22,7 @@ class ModuleBuilder: Builder {
         // Презентер
         let presenter = HeroesPresenter(view: view, networkService: networkService)
         // Адаптер служит для отделения делегатов таблицы от основной вью. SOLID "Принцип инверсий зависимостей"
-        let adapter = HeroesAdapter(model: presenter.data ?? HeroesModel(cards: nil))
+        let adapter = HeroesAdapter(model: presenter.model ?? HeroesModel(cards: nil))
         // Указываем для нашей вью Presenter и Adapter
         view.presenter = presenter
         view.adapter = adapter
