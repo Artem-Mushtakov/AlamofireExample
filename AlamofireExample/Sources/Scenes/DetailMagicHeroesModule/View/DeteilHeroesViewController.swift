@@ -30,21 +30,21 @@ class DetailHeroesViewController: UIViewController {
         view.backgroundColor = .white
         setupHierarchy()
         setupLayout()
-        //detailImageHeroes = (presenter?.detailImageHeroes) ?? UIImageView(image: .add)
     }
 
     // MARK:  - Settings
 
     private func setupHierarchy() {
         view.addSubview(detailImageHeroes)
-    detailImageHeroes.center = view.center
     }
 
     func setupLayout() {
         detailImageHeroes.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             detailImageHeroes.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            detailImageHeroes.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            detailImageHeroes.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            detailImageHeroes.widthAnchor.constraint(equalToConstant: 400),
+            detailImageHeroes.heightAnchor.constraint(equalToConstant: 600)
         ])
     }
 }
