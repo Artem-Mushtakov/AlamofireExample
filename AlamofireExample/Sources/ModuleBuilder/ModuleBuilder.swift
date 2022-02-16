@@ -10,7 +10,7 @@ import UIKit
 // Protocol для сборки модулей
 protocol Builder {
     static func createMagicHeroesModule() -> UIViewController
-    static func createInfoHeroesModule() -> UIViewController
+    static func createDetailHeroesModule(detailImageHeroes: UIImageView) -> UIViewController
 }
 
 // Class для сборки модулей
@@ -30,10 +30,11 @@ class ModuleBuilder: Builder {
         return view
     }
 
-    static func createInfoHeroesModule() -> UIViewController {
-        let view = InfoHeroesViewController()
-        let presenter = InfoHeroesPresenter(view: view)
+    static func createDetailHeroesModule(detailImageHeroes: UIImageView) -> UIViewController {
+        let view = DetailHeroesViewController()
+        let presenter = DetailHeroesPresenter(view: view)
         view.presenter = presenter
+        view.detailImageHeroes = detailImageHeroes
         return view
     }
 }

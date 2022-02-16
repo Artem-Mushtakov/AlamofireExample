@@ -25,6 +25,7 @@ class HeroesViewController: UIViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = adapter
         tableView.delegate = adapter
+        tableView.backgroundColor = .white
         tableView.register(HeroesBasicCellView.self, forCellReuseIdentifier: "BasicCellView")
         return tableView
     }()
@@ -34,7 +35,6 @@ class HeroesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Magic Heroes 🌯"
-        navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .white
         setupHierarchy()
         setupLayout()

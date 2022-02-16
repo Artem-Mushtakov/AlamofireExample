@@ -33,12 +33,14 @@ class HeroesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let data = model.cards
-        print(data?[indexPath.row].name ?? "")
-        tableView.deselectRow(at: indexPath, animated: true)
+        guard let data = model.cards else { return }
 
-        let infoViewController = ModuleBuilder.createInfoHeroesModule()
-        viewController.navigationController?.pushViewController(infoViewController, animated: true)
+        let detailImageHeroes = UIImageView()
+        detailImageHeroes.load(urlString: data[indexPath.row].imageURL ?? "https://leso-torg.ru/upload/iblock/e51/xj69n7ks24dyrb2de2xq5ubtq1u0eri1.jpeg")
+
+        let detailViewController = ModuleBuilder.createDetailHeroesModule(detailImageHeroes: detailImageHeroes)
+        viewController.navigationController?.pushViewController(detailViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,5 +53,22 @@ class HeroesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         cell.headerLabel.text = data[indexPath.row].name
         cell.label.text = "Нажми что бы посмотреть картинку!"
         return cell
+    }
+}
+
+extension UIImageView {
+    func load(urlString : String) {
+        guard let url = URL(string: urlString)else {
+            return
+        }
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }
