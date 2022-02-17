@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ACA6916127BE1F28000EA3DE /* UiImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA6916027BE1F28000EA3DE /* UiImageViewExtensions.swift */; };
 		ACDC991827B7E61800CA095F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC991727B7E61800CA095F /* AppDelegate.swift */; };
 		ACDC991A27B7E61800CA095F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC991927B7E61800CA095F /* SceneDelegate.swift */; };
 		ACDC991C27B7E61800CA095F /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC991B27B7E61800CA095F /* HeroesViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ACA6916027BE1F28000EA3DE /* UiImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiImageViewExtensions.swift; sourceTree = "<group>"; };
 		ACDC991427B7E61800CA095F /* AlamofireExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlamofireExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDC991727B7E61800CA095F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACDC991927B7E61800CA095F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				ACDC9A0D27B9272B00CA095F /* StringExtensions.swift */,
+				ACA6916027BE1F28000EA3DE /* UiImageViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				ACDC9A1127B9579B00CA095F /* NetworkProvider.swift in Sources */,
 				ACDC9A1D27B98C3B00CA095F /* HeroesPresenterProtocol.swift in Sources */,
 				ACDC991A27B7E61800CA095F /* SceneDelegate.swift in Sources */,
+				ACA6916127BE1F28000EA3DE /* UiImageViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
