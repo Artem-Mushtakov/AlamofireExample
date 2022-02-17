@@ -16,4 +16,3 @@ class DetailHeroesPresenter: DetailHeroesViewInputProtocol {
         self.view = view
     }
 }
-

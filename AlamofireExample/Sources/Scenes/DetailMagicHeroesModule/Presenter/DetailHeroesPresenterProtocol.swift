@@ -16,6 +16,5 @@ protocol DetailHeroesViewOutputProtocol: AnyObject {
 
 // Протокол передачи во вью
 protocol DetailHeroesViewInputProtocol: AnyObject {
-
     init(view: DetailHeroesViewOutputProtocol)
 }

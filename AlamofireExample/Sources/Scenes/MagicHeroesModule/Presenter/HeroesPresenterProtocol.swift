@@ -16,7 +16,9 @@ protocol HeroesViewOutputProtocol: AnyObject {
 // Протокол передачи во вью
 protocol HeroesViewInputProtocol: AnyObject {
 
-    init(view: HeroesViewOutputProtocol, networkService: ServiceProvider<NetworkProvider>)
-    func getData()
     var model: HeroesModel? { get set }
+
+    init(view: HeroesViewOutputProtocol, networkService: ServiceProvider<NetworkProvider>)
+
+    func getData()
 }

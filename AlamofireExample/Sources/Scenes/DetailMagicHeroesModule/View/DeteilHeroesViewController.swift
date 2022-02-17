@@ -17,8 +17,7 @@ class DetailHeroesViewController: UIViewController {
     // MARK: - Views
 
     var detailImageHeroes: UIImageView = {
-        var image = UIImageView()
-        image = UIImageView()
+        let image = UIImageView()
         image.contentMode = .scaleAspectFill
         return image
     }()
@@ -40,6 +39,7 @@ class DetailHeroesViewController: UIViewController {
 
     func setupLayout() {
         detailImageHeroes.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             detailImageHeroes.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             detailImageHeroes.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -50,11 +50,11 @@ class DetailHeroesViewController: UIViewController {
 }
 
 extension DetailHeroesViewController: DetailHeroesViewOutputProtocol {
-    // Функция вызывается при успешном выполнении запроса
-    func succes() {
 
+    func succes() {
+        print("succes")
     }
-    // Функция вызывается при ошибки выполнении запроса
+
     func failure(error: Error) {
         print(error.localizedDescription)
     }
