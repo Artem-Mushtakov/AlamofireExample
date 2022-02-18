@@ -12,8 +12,12 @@ import UIKit
 class HeroesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Properties
+
     var model: HeroesModel
     var viewController: UIViewController
+    var filteredData = [String]()
+    var tableView = UITableView()
+    var searchController = UISearchController()
 
     // MARK: - Initial
 
@@ -29,7 +33,11 @@ class HeroesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.cards?.count ?? 0
+        if  (searchController.isActive) {
+              return filteredData.count
+          } else {
+              return model.cards?.count ?? 0
+          }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -50,8 +58,28 @@ class HeroesAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
 
         guard let data = model.cards else { return UITableViewCell() }
 
-        cell.headerLabel.text = data[indexPath.row].name
-        cell.label.text = "Нажми что бы посмотреть картинку!"
-        return cell
+        if (searchController.isActive) {
+            cell.headerLabel.text = filteredData[indexPath.row]
+              return cell
+          }
+          else {
+              cell.headerLabel.text = data[indexPath.row].name
+              cell.label.text = "Нажми что бы посмотреть картинку!"
+              return cell
+          }
+    }
+}
+
+extension HeroesAdapter: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filteredData.removeAll(keepingCapacity: false)
+
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
+        let data = model.cards.map { $0.map { $0.name } }
+        guard let tableData = data else { return }
+        let array = (tableData as NSArray).filtered(using: searchPredicate)
+        filteredData = array as! [String]
+
+        self.tableView.reloadData()
     }
 }

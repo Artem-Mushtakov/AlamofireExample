@@ -20,6 +20,9 @@ class HeroesViewController: UIViewController {
     var adapter: HeroesAdapter?
     
     // MARK: - Views
+
+    let filteredData = [String]()
+    var searchController = UISearchController()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -38,6 +41,17 @@ class HeroesViewController: UIViewController {
         view.backgroundColor = .white
         setupHierarchy()
         setupLayout()
+
+        searchController = ({
+                let controller = UISearchController(searchResultsController: nil)
+                controller.searchResultsUpdater = adapter
+                controller.searchBar.sizeToFit()
+
+            navigationItem.searchController = controller
+
+                return controller
+            })()
+        tableView.reloadData()
     }
     
     // MARK:  - Settings
@@ -62,7 +76,11 @@ class HeroesViewController: UIViewController {
 extension HeroesViewController: HeroesViewOutputProtocol {
     // Функция вызывается при успешном выполнении запроса
     func succes() {
-        adapter?.model = presenter?.model ?? HeroesModel(cards: nil)
+       adapter?.model = presenter?.model ?? HeroesModel(cards: nil)
+        adapter?.filteredData = filteredData
+        adapter?.viewController = self
+        adapter?.searchController = searchController
+        adapter?.tableView = tableView
         tableView.reloadData()
     }
     // Функция вызывается при ошибки выполнении запроса
