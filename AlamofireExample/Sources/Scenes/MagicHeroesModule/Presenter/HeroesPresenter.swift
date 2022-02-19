@@ -21,9 +21,10 @@ class HeroesPresenter: HeroesViewInputProtocol {
     }
 
     func getData() {
-        networkService.load(service: .showCharacters, decodeType: HeroesModel.self) { [weak self] result in
+        networkService.load(service: .showHeroes, decodeType: HeroesModel.self) { [weak self] result in
             guard let self = self else { return }
             print(result)
+
             // Вызываем асинхронно с main потоком, что бы в случае задержки запроса, не было зависания UI.
             DispatchQueue.main.async {
                 switch result {

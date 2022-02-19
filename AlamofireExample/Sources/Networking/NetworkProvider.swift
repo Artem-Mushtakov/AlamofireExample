@@ -10,11 +10,11 @@ import Alamofire
 //Здесь заполняем параметры для запроса
 enum NetworkProvider: UrlRequestBuilder {
     
-    case showCharacters
+    case showHeroes
     
     var patch: String {
         switch self {
-        case .showCharacters:
+        case .showHeroes:
             return "/v1/cards/"
         }
     }
@@ -28,14 +28,14 @@ enum NetworkProvider: UrlRequestBuilder {
     
     var parameters: Parameters? {
         switch self {
-        case .showCharacters:
+        case .showHeroes:
             return nil
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .showCharacters:
+        case .showHeroes:
             return .get
         }
     }

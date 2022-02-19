@@ -18,6 +18,7 @@ class ServiceProvider<T: UrlRequestBuilder> {
     
     func load<U: Codable>(service: T, decodeType: U.Type, completion: @escaping (Result<U>) -> Void) {
         guard let ursRequest = service.urlRequest else { return }
+
         AF.request(ursRequest).responseDecodable(of: U.self) { (response) in
             switch response.result {
             case .success(let result):
