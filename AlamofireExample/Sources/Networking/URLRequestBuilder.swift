@@ -25,6 +25,7 @@ protocol UrlRequestBuilder: URLRequestConvertible {
 
 
 extension UrlRequestBuilder {
+    
     // Базовый URL
     var baseUrl: String {
         return "https://api.magicthegathering.io/"
@@ -42,7 +43,8 @@ extension UrlRequestBuilder {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         switch method {
-            // У нас только GET запрос, поэтому добавляем для него Заголовок и Параметры. Так же можно добавить .POST и тд.
+
+        // У нас только GET запрос, поэтому добавляем для него Заголовок и Параметры. Так же можно добавить .POST и тд.
         case .get:
             request.allHTTPHeaderFields = headers?.dictionary
             request = try URLEncoding.default.encode(request, with: parameters)

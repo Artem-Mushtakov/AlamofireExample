@@ -16,7 +16,7 @@ class DetailHeroesViewController: UIViewController {
 
     // MARK: - Views
 
-    var detailImageHeroes: UIImageView = {
+    lazy var detailImageHeroes: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
         return image
@@ -37,7 +37,7 @@ class DetailHeroesViewController: UIViewController {
         view.addSubview(detailImageHeroes)
     }
 
-    func setupLayout() {
+    private func setupLayout() {
         detailImageHeroes.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([

@@ -8,7 +8,6 @@
 import Alamofire
 
 //Здесь заполняем параметры для запроса
-
 enum NetworkProvider: UrlRequestBuilder {
     
     case showCharacters
@@ -30,7 +29,7 @@ enum NetworkProvider: UrlRequestBuilder {
     var parameters: Parameters? {
         switch self {
         case .showCharacters:
-            return nil  //["name" : "Black Lotus"]
+            return nil
         }
     }
     

@@ -51,11 +51,11 @@ class HeroesBasicCellView: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            contentView.heightAnchor.constraint(equalToConstant: 80),
+            contentView.heightAnchor.constraint(equalToConstant: Metric.contentViewHeightAnchor),
             headerLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            headerLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -15),
+            headerLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: Metric.headerCenterYAnchor),
             label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            label.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 5)
+            label.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: Metric.labelTopAnchor)
         ])
     }
 }
@@ -64,5 +64,8 @@ extension HeroesBasicCellView {
 
     enum Metric {
         static let labelFont: UIFont = .boldSystemFont(ofSize: 17)
+        static let contentViewHeightAnchor: CGFloat = 80
+        static let headerCenterYAnchor: CGFloat = -15
+        static let labelTopAnchor: CGFloat = 5
     }
 }

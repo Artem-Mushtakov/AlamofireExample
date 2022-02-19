@@ -14,7 +14,6 @@
 		ACDC992127B7E61800CA095F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDC992027B7E61800CA095F /* Assets.xcassets */; };
 		ACDC993027B7F5B800CA095F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = ACDC992F27B7F5B800CA095F /* Alamofire */; };
 		ACDC99D727B8016900CA095F /* HeroesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC99D627B8016900CA095F /* HeroesPresenter.swift */; };
-		ACDC99D927B8018800CA095F /* HeroesAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC99D827B8018800CA095F /* HeroesAdapter.swift */; };
 		ACDC99E127B82A9100CA095F /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC99E027B82A9100CA095F /* ModuleBuilder.swift */; };
 		ACDC99E927B82E0200CA095F /* AlamofireExampleUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC99E827B82E0200CA095F /* AlamofireExampleUnitTests.swift */; };
 		ACDC99F327B82E9000CA095F /* MarvelCharacterPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDC99F227B82E9000CA095F /* MarvelCharacterPresenterTest.swift */; };
@@ -49,7 +48,6 @@
 		ACDC992027B7E61800CA095F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACDC992527B7E61800CA095F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACDC99D627B8016900CA095F /* HeroesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesPresenter.swift; sourceTree = "<group>"; };
-		ACDC99D827B8018800CA095F /* HeroesAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesAdapter.swift; sourceTree = "<group>"; };
 		ACDC99E027B82A9100CA095F /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		ACDC99E627B82E0200CA095F /* AlamofireExampleUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlamofireExampleUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDC99E827B82E0200CA095F /* AlamofireExampleUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireExampleUnitTests.swift; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				ACDC991B27B7E61800CA095F /* HeroesViewController.swift */,
-				ACDC99D827B8018800CA095F /* HeroesAdapter.swift */,
 				ACDC99FC27B830EA00CA095F /* HeroesBasicCellView.swift */,
 			);
 			path = View;
@@ -374,7 +371,6 @@
 				ACDC9A1F27B98C7100CA095F /* DetailHeroesPresenterProtocol.swift in Sources */,
 				ACDC9A0E27B9272B00CA095F /* StringExtensions.swift in Sources */,
 				ACDC99D727B8016900CA095F /* HeroesPresenter.swift in Sources */,
-				ACDC99D927B8018800CA095F /* HeroesAdapter.swift in Sources */,
 				ACDC9A1327B957F200CA095F /* ServiceProvider.swift in Sources */,
 				ACDC9A1127B9579B00CA095F /* NetworkProvider.swift in Sources */,
 				ACDC9A1D27B98C3B00CA095F /* HeroesPresenterProtocol.swift in Sources */,
